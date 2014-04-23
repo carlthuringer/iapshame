@@ -13,6 +13,10 @@ module WebStubs
     stub_request(:get, %q{https://itunes.apple.com/us/rss/newapplications/limit=10/genre=6014/xml})
       .to_return(File.open('./spec/fixtures/http/apple/rss_feed_games_get_200.txt'))
   end
+
+  def stub_example_get_home_200
+    stub_request(:get, %q{http://www.example.com}).to_return(File.open('./spec/fixtures/http/example/get_home_200.txt'))
+  end
 end
 
 RSpec.configure do |config|

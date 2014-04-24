@@ -19,11 +19,16 @@ gem 'spring',        group: :development
 gem 'nokogiri', '~> 1.6.1'
 gem 'light-service', '~> 0.2.2'
 
+gem 'foreman', '~> 0.66.0'
+gem 'redis', '~> 3.0.7'
+
 group :development, :test do
   gem 'pry'
+  gem 'pry-rescue'
 end
 
 group :test do
   gem 'rspec-rails', '~> 2.14.2'
   gem 'webmock', '~> 1.17.4'
+  gem 'fakeredis', '~> 0.4.3'
 end

@@ -7,6 +7,19 @@ class Game
     :preview_uri,
     :image_uri,
     :release_date,
-    :top_iap_text,
+    :top_iap_title,
     :top_iap_price
+
+  def attributes
+    {
+      :app_id => app_id,
+      :name => name,
+      :developer_name => developer_name,
+      :preview_uri => preview_uri,
+      :image_uri => image_uri,
+      :release_date => release_date,
+      :top_iap_title => top_iap_title,
+      :top_iap_price => top_iap_price
+    }
+  end
 end

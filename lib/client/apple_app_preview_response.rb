@@ -2,11 +2,11 @@ require './lib/client/client'
 require './lib/client/response'
 require 'nokogiri'
 
-class Client::AppleRSSFeedResponse < Client::Response
+class Client::AppleAppPreviewResponse < Client::Response
   attr_reader :document
 
   def initialize(response)
-    @document = Nokogiri::XML(response.body).remove_namespaces!
+    @document = Nokogiri::HTML(response.body)
     super
   end
 end

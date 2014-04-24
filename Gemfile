@@ -17,6 +17,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 gem 'nokogiri', '~> 1.6.1'
+gem 'light-service', '~> 0.2.2'
 
 group :development, :test do
   gem 'pry'

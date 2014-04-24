@@ -1,4 +1,5 @@
 require './lib/importer/importer'
+require 'nokogiri'
 
 class Importer::Game
   def self.import_feed_document(document)

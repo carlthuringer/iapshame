@@ -1,3 +1,4 @@
+require './lib/importer/game'
 require 'light-service'
 
 class ImportsGameAttributesFromFeed

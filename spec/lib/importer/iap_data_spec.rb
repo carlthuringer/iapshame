@@ -15,5 +15,21 @@ describe "Importer::IAPData" do
       }]
       expect(imported).to eq(expected)
     end
+
+    it 'correctly collects all in app purchases' do
+      disable_net_connect!
+      stub_apple_app_preview_with_iap_clash_of_clans_get_200
+      response = Client::AppleAppPreviewPage.fetch_preview("https://itunes.apple.com/us/app/4.0.9.6/id854533196?mt=8&uo=2")
+      imported = Importer::IAPData.import_preview_page(response.document)
+      expected = [
+        {:text=>"Pile of Gems", :price=>4.99},
+        {:text=>"Bag of Gems", :price=>9.99},
+        {:text=>"Sack of Gems", :price=>19.99},
+        {:text=>"Box of Gems", :price=>49.99},
+        {:text=>"Chest of Gems", :price=>99.99}
+      ]
+
+      expect(imported).to eq(expected)
+    end
   end
 end

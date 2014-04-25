@@ -1,5 +1,4 @@
 require './config/app_settings'
-require 'pry'
 
 describe "AppSettings" do
   describe "Instance behavior" do

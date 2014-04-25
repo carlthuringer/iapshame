@@ -10,7 +10,7 @@ module WebStubs
   end
 
   def stub_apple_rss_feed_games_get_200
-    stub_request(:get, %q{https://itunes.apple.com/us/rss/newapplications/limit=10/genre=6014/xml})
+    stub_request(:get, %q{https://itunes.apple.com/us/rss/newapplications/xml})
       .to_return(File.open('./spec/fixtures/http/apple/rss_feed_games_get_200.txt'))
   end
 
@@ -24,6 +24,10 @@ module WebStubs
 
   def stub_apple_app_preview_with_iap_get_200
     stub_request(:get, %r{https://itunes\.apple\.com/us/app/.*}).to_return(File.open('./spec/fixtures/http/apple/app_preview_with_iap_get_200.txt'))
+  end
+
+  def stub_apple_app_preview_with_iap_clash_of_clans_get_200
+    stub_request(:get, %r{https://itunes\.apple\.com/us/app/.*}).to_return(File.open('./spec/fixtures/http/apple/app_preview_with_iap_get_clash_of_clans_200.txt'))
   end
 end
 

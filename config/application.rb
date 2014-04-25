@@ -28,5 +28,6 @@ module Iapshame
     config.autoload_paths += %W{#{config.root}/lib}
     config.autoload_paths += %W{#{config.root}/services}
     config.autoload_paths += %W{#{config.root}/actions}
+    config.autoload_paths += %W{#{config.root}/workers}
   end
 end

@@ -21,9 +21,11 @@ gem 'light-service', '~> 0.2.2'
 
 gem 'foreman', '~> 0.66.0'
 gem 'redis', '~> 3.0.7'
+gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-rails'
   gem 'pry-rescue'
 end
 

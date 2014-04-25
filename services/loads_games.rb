@@ -11,6 +11,7 @@ class LoadsGames
       FetchesAppPreviewPage,
       ImportsIAPDataFromPreviewPage,
       AppliesIAPDataToGames,
+      PersistsGameData
     )
   end
 end

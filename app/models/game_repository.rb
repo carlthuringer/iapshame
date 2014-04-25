@@ -12,6 +12,10 @@ class GameRepository
     Game.new(parsed_attrs)
   end
 
+  def self.read_all
+    connection.keys.map{|app_id| read app_id}
+  end
+
   def self.connection
     @@connection ||= Redis.new
   end

@@ -2,10 +2,11 @@ require './services/loads_games'
 require './lib/client/apple_rss_feed'
 require 'http_helper'
 require 'app_settings_helper'
+require 'fakeredis'
 
 describe "LoadsGames" do
   describe '#from_feed' do
-    it 'returns a list of fully-populated games' do
+    it 'returns a list of fully-populated games which are persisted to redis' do
       load_app_config
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
@@ -13,6 +14,7 @@ describe "LoadsGames" do
       feed_response = Client::AppleRSSFeed.fetch_new_games
       result = LoadsGames.from_feed(feed_response.document)
       game = result.fetch(:games).first
+      game_id = game.app_id
       expected_attributes = {
         :app_id => 854533196,
         :name => "4.0.9.6",
@@ -23,7 +25,8 @@ describe "LoadsGames" do
         :top_iap_title => "Random Button",
         :top_iap_price => 0.99
       }
-      expect(game.attributes).to eq(expected_attributes)
+      game_from_redis = GameRepository.read(game_id)
+      expect(game_from_redis.attributes).to eq(expected_attributes)
     end
   end
 end

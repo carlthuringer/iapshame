@@ -16,6 +16,7 @@ config/secrets.yml
 *.swo
 # Redis database
 dump.rdb
+/config/deploy*
 
 ## Environment normalisation:
 /.bundle

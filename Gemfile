@@ -24,13 +24,12 @@ gem 'redis', '~> 3.0.7'
 gem "resque", "~> 1.25.2"
 gem 'rest-client', "~> 1.6.7"
 
-gem 'capistrano',  '~> 3.1'
-gem 'capistrano-rails', '~> 1.1'
 
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-rescue'
+  gem 'capistrano',  '~> 3.1'
 end
 
 group :test do

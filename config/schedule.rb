@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "/etc/crontab"
+set :output, "/var/log/cron.log"
 
 every 1.hour do
   rake "feed_processing:get_new_games"

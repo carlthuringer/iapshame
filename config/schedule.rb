@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, "/etc/crontab"
+
 every 1.hour do
   rake "feed_processing:get_new_games"
 end

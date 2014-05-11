@@ -19,9 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "/var/log/cron.log"
 
 every 1.hour do
+  set :output, "/var/log/get_new_games.log"
   rake "feed_processing:get_new_games"
 end
 

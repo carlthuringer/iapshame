@@ -21,7 +21,7 @@
 
 
 every 1.hour do
-  set :output, "/var/log/get_new_games.log"
+  set :output, "/var/iapshame/shared/log/get_new_games.log"
   rake "feed_processing:get_new_games"
 end
 

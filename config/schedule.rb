@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+
+env :PATH, ENV['PATH']
 every 1.hour do
   rake "feed_processing:get_new_games", :output => "/var/iapshame/shared/log/get_new_games.log"
 end

@@ -19,9 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-
 every 1.hour do
-  set :output, "/var/iapshame/shared/log/get_new_games.log"
-  rake "feed_processing:get_new_games"
+  rake "feed_processing:get_new_games", :output => "/var/iapshame/shared/log/get_new_games.log"
 end
 

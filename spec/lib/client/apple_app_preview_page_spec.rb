@@ -1,5 +1,5 @@
 require 'http_helper'
-require './lib/client/apple_app_preview_page'
+require './app/client/apple_app_preview_page'
 require 'nokogiri'
 
 describe "Client::AppleAppPreviewPage" do

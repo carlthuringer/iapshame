@@ -1,4 +1,4 @@
-require './actions/instantiates_games_from_attributes'
+require './app/actions/instantiates_games_from_attributes'
 
 describe "InstantiatesGamesFromAttributes" do
   it "Creates a new game object for each item in the attributes hash with the attributes supplied in the context" do

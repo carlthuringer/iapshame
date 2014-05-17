@@ -1,4 +1,4 @@
-require './lib/decorator'
+require './app/decorator'
 
 class Foo
   def bar

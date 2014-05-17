@@ -1,4 +1,4 @@
-require './actions/persists_game_data'
+require './app/actions/persists_game_data'
 require './app/models/game_repository'
 
 describe "PersistsGameData" do

@@ -1,4 +1,4 @@
-require './actions/imports_game_attributes_from_feed'
+require './app/actions/imports_game_attributes_from_feed'
 
 describe "ImportsGameAttributesFromFeed" do
   it "Uses the Importer::Game class to import attributes from the feed passed in context" do

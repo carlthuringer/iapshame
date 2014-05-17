@@ -1,4 +1,4 @@
-require './lib/simple_singleton'
+require './app/simple_singleton'
 require 'yaml'
 
 class AppSettings

@@ -1,4 +1,4 @@
-require './lib/client/apple_rss_feed_response'
+require './app/client/apple_rss_feed_response'
 require 'http_helper'
 
 describe "Client::AppleRSSFeedResponse" do

@@ -1,4 +1,4 @@
-require './actions/imports_iap_data_from_preview_page'
+require './app/actions/imports_iap_data_from_preview_page'
 
 describe "ImportsIAPDataFromPreviewPage" do
   it "imports the IAP data from the preview page and stores it in iap_data by game id" do

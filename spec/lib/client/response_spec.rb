@@ -1,4 +1,4 @@
-require './lib/client/response'
+require './app/client/response'
 require 'net/http'
 require 'http_helper'
 

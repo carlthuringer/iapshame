@@ -1,4 +1,4 @@
-require './services/fetches_in_app_purchases'
+require './app/services/fetches_in_app_purchases'
 require 'http_helper'
 require 'fakeredis'
 

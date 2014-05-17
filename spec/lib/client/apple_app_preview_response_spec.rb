@@ -1,4 +1,4 @@
-require './lib/client/apple_app_preview_response'
+require './app/client/apple_app_preview_response'
 require 'http_helper'
 
 describe "Client::AppleAppPreviewResponse" do

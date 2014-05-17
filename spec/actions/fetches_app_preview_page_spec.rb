@@ -1,4 +1,4 @@
-require './actions/fetches_app_preview_page'
+require './app/actions/fetches_app_preview_page'
 
 describe "FetchesAppPreviewPage" do
   it "uses the Client::AppleAppPreviewPage to add a hash of id => html page to the context" do

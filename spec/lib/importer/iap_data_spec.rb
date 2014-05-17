@@ -1,5 +1,5 @@
-require './lib/importer/iap_data'
-require './lib/client/apple_app_preview_page'
+require './app/importer/iap_data'
+require './app/client/apple_app_preview_page'
 require 'http_helper'
 
 describe "Importer::IAPData" do

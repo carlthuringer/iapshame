@@ -1,4 +1,4 @@
-require './actions/applies_iap_data_to_games'
+require './app/actions/applies_iap_data_to_games'
 require './app/models/game'
 
 describe "AppliesIAPDataToGames" do

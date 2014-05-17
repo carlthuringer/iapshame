@@ -1,4 +1,4 @@
-require './lib/client/apple_rss_feed'
+require './app/client/apple_rss_feed'
 require 'http_helper'
 require 'app_settings_helper'
 

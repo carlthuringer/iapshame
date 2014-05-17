@@ -1,4 +1,4 @@
-require './actions/enqueues_iap_fetcher'
+require './app/actions/enqueues_iap_fetcher'
 
 describe "EnqueuesIAPFetcher" do
   it "Enqueues the IAP fetcher job in Resque for all games in the context" do

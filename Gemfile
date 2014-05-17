@@ -13,14 +13,12 @@ gem 'whenever', '~> 0.9.2', :require => false
 
 group :development, :test do
   gem 'pry'
-  gem 'pry-rails'
   gem 'pry-rescue'
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-bundler', '~> 1.1.2'
 end
 
 group :test do
-  gem 'rspec-rails', '~> 2.14.2'
   gem 'webmock', '~> 1.17.4'
   gem 'fakeredis', '~> 0.4.3'
 end

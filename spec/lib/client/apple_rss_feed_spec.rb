@@ -5,7 +5,7 @@ require 'app_settings_helper'
 describe "AppleRSSFeed" do
   describe '#fetch_new_games' do
     it 'successfully fetches new games' do
-      load_app_config
+      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       response = Client::AppleRSSFeed.fetch_new_games
@@ -13,7 +13,7 @@ describe "AppleRSSFeed" do
     end
 
     it 'returns a response with a document' do
-      load_app_config
+      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       response = Client::AppleRSSFeed.fetch_new_games

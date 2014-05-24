@@ -1,0 +1,12 @@
+#! /usr/bin/env ruby
+
+libs = []
+libs << File.join('./', File.dirname(__FILE__), *%w{.. spec spec_helper.rb})
+
+command_line = []
+command_line << "bundle exec rspec"
+command_line << libs.inject("") { |acc, lib| acc + %( -r "#{lib}") }
+command_line += ARGV
+command = command_line.join(" ")
+
+exec command

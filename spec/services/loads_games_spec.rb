@@ -9,7 +9,7 @@ require 'resque'
 describe "LoadsGames" do
   describe '#from_feed' do
     it 'returns a list of fully-populated games which are persisted to redis' do
-      load_app_config
+      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       stub_apple_app_preview_with_iap_get_200
@@ -33,7 +33,7 @@ describe "LoadsGames" do
     end
 
     it "Queues a resque job to load the IAP data" do
-      load_app_config
+      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       stub_apple_app_preview_with_iap_get_200

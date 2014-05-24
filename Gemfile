@@ -17,6 +17,7 @@ gem 'whenever', '~> 0.9.2', :require => false
 group :development, :test do
   gem 'pry'
   gem 'pry-rescue'
+  gem 'rspec', '~> 2.14.1'
   gem 'capistrano',  '~> 3.1'
   gem 'capistrano-bundler', '~> 1.1.2'
 end

@@ -6,7 +6,7 @@ require 'app_settings_helper'
 describe 'Importer::Game' do
   describe '#import' do
     it 'transforms a feed document into a hash of attributes' do
-      load_app_config
+      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       response = Client::AppleRSSFeed.fetch_new_games

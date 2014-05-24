@@ -188,6 +188,7 @@ DEPENDENCIES
   nokogiri (~> 1.6.1)
   pry
   pry-rescue
+  rake (~> 10.3.2)
   redis (~> 3.0.7)
   resque (~> 1.25.2)
   rest-client (~> 1.6.7)

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'middleman', '~> 3.3.2'
 
+gem 'activemodel', '~> 4.1.1'
+
 gem 'nokogiri', '~> 1.6.1'
 gem 'light-service', '~> 0.3.0'
 

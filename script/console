@@ -1,0 +1,17 @@
+#! /usr/bin/env ruby
+# http://barkingiguana.com/2009/01/25/scriptconsole-for-your-application/
+
+libs = []
+libs << File.join('./', File.dirname(__FILE__), *%w{.. config boot.rb})
+
+command_line = []
+command_line << "bundle exec pry"
+command_line << libs.inject("") { |acc, lib| acc + %( -r "#{lib}") }
+command_line << "--simple-prompt"
+command = command_line.join(" ")
+
+puts "Welcome to the IAPShame console"
+exec command
+
+
+

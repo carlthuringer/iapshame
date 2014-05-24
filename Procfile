@@ -1,4 +1,3 @@
-redis: redis-server config/redis.conf
-web: rails server
+redis: redis-server config/redis-development.conf
 worker: rake environment resque:work QUEUE=* VERBOSE=1
 log: tail -F log/*.log

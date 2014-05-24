@@ -3,6 +3,11 @@
 
 require 'resque/tasks'
 
+desc "Load environment"
+task :environment do
+  require File.join File.dirname(__FILE__), 'config', 'boot'
+end
+
 namespace :feed_processing do
   desc "Gets new games from Apple RSS feed and persists them to Redis"
   task :get_new_games => :environment do

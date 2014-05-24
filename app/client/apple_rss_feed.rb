@@ -1,4 +1,5 @@
 require 'net/http'
+require 'app_settings'
 require './app/client/client'
 require './app/client/apple_rss_feed_response'
 

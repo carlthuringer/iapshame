@@ -1,5 +1,4 @@
 require './app/models/game'
-require 'redis'
 require 'json'
 
 class GameRepository

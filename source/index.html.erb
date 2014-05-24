@@ -1,6 +1,28 @@
 ---
-title: HTML5 Boilerplate Middleman
+title: In-App-Purchase Shame
 ---
 
 <!-- Add your site or application content here -->
-<p>Hello world! This is HTML5 Boilerplate.</p>
+<%- require 'config/boot' %>
+<%- @games = GameRepository.read_all %>
+<h1>In App Purchase Shame</h1>
+<table>
+  <thead>
+    <tr>
+      <%- @games.first.attributes.each do |attribute, value| %>
+        <td><%= attribute.to_s.titleize %></td>
+    <%- end %>
+    </tr>
+  </thead>
+  <tbody>
+  <%- @games.each do |game| %>
+    <tr>
+      <%- game.attributes.each do |attribute, value| %>
+        <td><%= value %></td>
+      <%- end %>
+    </tr>
+  <%- end %>
+  </tbody>
+</table>
+
+

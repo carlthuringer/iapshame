@@ -15,7 +15,12 @@ title: In-App-Purchase Shame
     </tr>
   </thead>
   <tbody>
-  <%- @games.map{|g| GamePresenter.new(g)}.each do |game| %>
+  <%-
+    @games
+      .reject{|g| g.top_iap_price.nil? }
+      .map{|g| GamePresenter.new(g)}
+      .each do |game|
+    %>
     <tr>
       <td><img src="<%= game.image_uri %>"></img></td>
       <td><h2><%= game.title %></h2></td>

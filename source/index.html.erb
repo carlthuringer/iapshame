@@ -9,17 +9,17 @@ title: In-App-Purchase Shame
 <table>
   <thead>
     <tr>
-      <%- @games.first.attributes.each do |attribute, value| %>
-        <td><%= attribute.to_s.titleize %></td>
-    <%- end %>
+      <td></td>
+      <td>Title</td>
+      <td>Top Purchase</td>
     </tr>
   </thead>
   <tbody>
-  <%- @games.each do |game| %>
+  <%- @games.map{|g| GamePresenter.new(g)}.each do |game| %>
     <tr>
-      <%- game.attributes.each do |attribute, value| %>
-        <td><%= value %></td>
-      <%- end %>
+      <td><img src="<%= game.image_uri %>"></img></td>
+      <td><h2><%= game.title %></h2></td>
+      <td><%= game.top_iap_title %> <%= game.top_iap_price %></td>
     </tr>
   <%- end %>
   </tbody>

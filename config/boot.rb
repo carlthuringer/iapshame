@@ -14,5 +14,6 @@ end
 require 'active_support'
 require 'apple_rss_feed'
 require 'loads_games'
+require 'game_presenter'
 
 #$: << File.join(File.dirname(__FILE__), *%w{.. app})

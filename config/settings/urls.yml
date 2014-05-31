@@ -1,1 +1,7 @@
-:apple_new_games_feed: https://itunes.apple.com/us/rss/newapplications/xml
+:new_applications: https://itunes.apple.com/us/rss/newapplications/xml
+:top_free_applications: https://itunes.apple.com/us/rss/topfreeapplications/limit=100/xml
+:top_paid_applications: https://itunes.apple.com/us/rss/toppaidapplications/limit=100/xml
+:top_grossing_applications: https://itunes.apple.com/us/rss/topgrossingapplications/limit=100/xml
+:top_free_ipad_applications: https://itunes.apple.com/us/rss/topgrossingapplications/limit=100/xml
+:top_paid_ipad_applications: https://itunes.apple.com/us/rss/toppaidipadapplications/limit=100/xml
+:top_grossing_ipad_applications: https://itunes.apple.com/us/rss/topgrossingipadapplications/limit=100/xml

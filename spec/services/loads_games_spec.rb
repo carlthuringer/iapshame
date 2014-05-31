@@ -2,18 +2,16 @@ require './app/services/loads_games'
 require './app/client/apple_rss_feed'
 require './app/workers/fetch_in_app_purchases_job'
 require 'http_helper'
-require 'app_settings_helper'
 require 'fakeredis'
 require 'resque'
 
 describe "LoadsGames" do
   describe '#from_feed' do
     it 'returns a list of fully-populated games which are persisted to redis' do
-      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       stub_apple_app_preview_with_iap_get_200
-      feed_response = Client::AppleRSSFeed.fetch_new_games
+      feed_response = Client::AppleRSSFeed.fetch_feed(URI('https://itunes.apple.com/us/rss/newapplications/xml'))
       Resque.stub(:enqueue)
       result = LoadsGames.from_feed(feed_response.document)
       game = result.fetch(:games).first
@@ -33,11 +31,10 @@ describe "LoadsGames" do
     end
 
     it "Queues a resque job to load the IAP data" do
-      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
       stub_apple_app_preview_with_iap_get_200
-      feed_response = Client::AppleRSSFeed.fetch_new_games
+      feed_response = Client::AppleRSSFeed.fetch_feed(URI('https://itunes.apple.com/us/rss/newapplications/xml'))
 
       expect(Resque).to receive(:enqueue).with(FetchInAppPurchasesJob, anything).exactly(100).times
 

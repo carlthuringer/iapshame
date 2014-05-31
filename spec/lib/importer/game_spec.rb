@@ -1,15 +1,13 @@
 require './app/importer/game'
 require './app/client/apple_rss_feed'
 require 'http_helper'
-require 'app_settings_helper'
 
 describe 'Importer::Game' do
   describe '#import' do
     it 'transforms a feed document into a hash of attributes' do
-      stub_apple_rss_feed
       disable_net_connect!
       stub_apple_rss_feed_games_get_200
-      response = Client::AppleRSSFeed.fetch_new_games
+      response = Client::AppleRSSFeed.fetch_feed(URI('https://itunes.apple.com/us/rss/newapplications/xml'))
       imported = Importer::Game.import_feed_document(response.document)
       expected = {
         :app_id => 854533196,

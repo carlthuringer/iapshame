@@ -8,7 +8,9 @@ class Game
     :image_uri,
     :release_date,
     :top_iap_title,
-    :top_iap_price
+    :top_iap_price,
+    :top_list_rank,
+    :score
 
   def attributes
     {

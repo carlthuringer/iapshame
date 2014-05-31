@@ -4,10 +4,10 @@ describe "ImportsGameAttributesFromFeed" do
   it "Uses the Importer::Game class to import attributes from the feed passed in context" do
     feed = double
     attributes = double
-    context = { :feed => feed }
+    context = { :feed => feed, :is_top_list => false }
     Importer::Game.stub(:import_feed_document).and_return(attributes)
     result_context = ImportsGameAttributesFromFeed.execute(context)
-    expect(Importer::Game).to have_received(:import_feed_document).with(feed)
+    expect(Importer::Game).to have_received(:import_feed_document).with(feed, false)
     expect(result_context.fetch(:game_attributes)).to eq(attributes)
   end
 end

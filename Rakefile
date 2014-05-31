@@ -13,7 +13,19 @@ end
 namespace :feed_processing do
   desc "Gets new games from Apple RSS feed and persists them to Redis"
   task :get_new_games => :environment do
-    games_feed = Client::AppleRSSFeed.fetch_feed
-    LoadsGames.from_feed(games_feed.document)
+    AppSettings.urls.each do |name, url|
+      p name, url
+      uri = URI(url)
+      games_feed = Client::AppleRSSFeed.fetch_feed(uri)
+      is_top_list_feed = name.match(/top/)
+      LoadsGames.from_feed(games_feed.document, is_top_list_feed)
+    end
+  end
+
+  desc "Re-fetch In-App Purchases"
+  task :refetch_in_app_purchases => :environment do
+    GameRepository.read_all.each do |game|
+      Resque.enqueue(FetchInAppPurchasesJob, game.app_id)
+    end
   end
 end

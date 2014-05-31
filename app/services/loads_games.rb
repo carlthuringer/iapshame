@@ -7,8 +7,8 @@ require './app/actions/enqueues_iap_fetcher'
 class LoadsGames
   include LightService::Organizer
 
-  def self.from_feed(feed)
-    with(:feed => feed).reduce(
+  def self.from_feed(feed, is_top_list = false)
+    with(:feed => feed, :is_top_list => is_top_list).reduce(
       ImportsGameAttributesFromFeed,
       InstantiatesGamesFromAttributes,
       PersistsGameData,

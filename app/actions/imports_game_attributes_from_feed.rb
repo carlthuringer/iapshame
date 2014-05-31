@@ -6,6 +6,7 @@ class ImportsGameAttributesFromFeed
 
   executed do |context|
     feed = context.fetch(:feed)
-    context[:game_attributes] = Importer::Game.import_feed_document(feed)
+    is_top_list = context.fetch(:is_top_list)
+    context[:game_attributes] = Importer::Game.import_feed_document(feed, is_top_list)
   end
 end

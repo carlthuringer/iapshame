@@ -20,7 +20,8 @@ class Game
       :image_uri => image_uri,
       :release_date => release_date,
       :top_iap_title => top_iap_title,
-      :top_iap_price => top_iap_price
+      :top_iap_price => top_iap_price,
+      :top_list_rank => top_list_rank
     }
   end
 
@@ -34,6 +35,14 @@ class Game
   end
 
   def score
-    Math.log([top_iap_price.to_f, 1].max) + release_date.to_i / 10000000
+    top_list_rank_boost + iap_price_boost + release_date.to_f / 10000000
+  end
+
+  def iap_price_boost
+    Math.log([top_iap_price.to_f, 1].max)
+  end
+
+  def top_list_rank_boost
+    Math.log10([(100 - top_list_rank.to_i), 1].max)
   end
 end

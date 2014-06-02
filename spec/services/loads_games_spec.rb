@@ -24,7 +24,8 @@ describe "LoadsGames" do
         :image_uri => "http://a1919.phobos.apple.com/us/r30/Purple/v4/06/ab/62/06ab62fe-76dd-9b16-a155-b6180b0ec9f1/mzl.ohrotgzr.100x100-75.png",
         :release_date => Time.parse("2014-04-22 15:42:11 -0500"),
         :top_iap_title => nil,
-        :top_iap_price => nil
+        :top_iap_price => nil,
+        :top_list_rank => nil
       }
       game_from_redis = GameRepository.read(game_id)
       expect(game_from_redis.attributes).to eq(expected_attributes)

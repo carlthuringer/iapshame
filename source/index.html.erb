@@ -4,7 +4,7 @@ title: In-App-Purchase Shame
 
 <!-- Add your site or application content here -->
 <%- require 'config/boot' %>
-<%- @games = GameRepository.read_top_100 %>
+<%- @games = GameRepository.read_top_100.compact %>
 <h1>In App Purchase Shame</h1>
 <table>
   <thead>

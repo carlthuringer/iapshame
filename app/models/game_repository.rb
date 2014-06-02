@@ -32,9 +32,14 @@ class GameRepository
 
   def self.read_top_100
     tail_rank = connection.zcard(game_score_key)
-    connection.zrevrange(game_score_key, tail_rank - 101, tail_rank).map do |app_id|
+    connection.zrevrange(game_score_key, 0, tail_rank).map do |app_id|
       read app_id
     end
+  end
+
+  def self.clear_and_rescore
+    connection.del(game_score_key)
+    read_all.each{|game| write game}
   end
 
   def self.game_score_key

@@ -21,5 +21,4 @@ describe 'Importer::Game' do
       expect(imported.first).to eq(expected)
     end
   end
-
 end

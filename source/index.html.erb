@@ -4,26 +4,29 @@ title: In-App-Purchase Shame
 
 <!-- Add your site or application content here -->
 <%- require 'config/boot' %>
-<%- @games = GameRepository.read_all %>
+<%- @games = GameRepository.read_top_100 %>
 <h1>In App Purchase Shame</h1>
 <table>
   <thead>
     <tr>
       <td></td>
+      <td></td>
       <td>Title</td>
+      <td>Release Date</td>
       <td>Top Purchase</td>
     </tr>
   </thead>
   <tbody>
   <%-
     @games
-      .reject{|g| g.top_iap_price.nil? }
       .map{|g| GamePresenter.new(g)}
-      .each do |game|
+      .each.with_index do |game, rank|
     %>
     <tr>
+      <td><h2><%= rank + 1 %></h2></td>
       <td><img src="<%= game.image_uri %>"></img></td>
-      <td><h2><%= game.title %></h2></td>
+      <td><h2><a href="<%= game.preview_uri %>" target="blank"><%= game.title %></a></h2></td>
+      <td><%= game.release_date %></td>
       <td><%= game.top_iap_title %> <%= game.top_iap_price %></td>
     </tr>
   <%- end %>

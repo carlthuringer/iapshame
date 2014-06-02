@@ -4,6 +4,7 @@ require 'json'
 class GameRepository
   def self.write(game)
     connection.set(keyspace(game.app_id), game.attributes.to_json)
+    connection.zadd(game_score_key, game.score, game.app_id)
   end
 
   def self.read(app_id)
@@ -12,12 +13,32 @@ class GameRepository
     else
       keyspaced_id = keyspace(app_id)
     end
-    parsed_attrs = JSON.parse(connection.get(keyspaced_id))
-    Game.new(parsed_attrs)
+
+    if found_game = connection.get(keyspaced_id)
+      parsed_attrs = JSON.parse(found_game)
+      Game.new(parsed_attrs)
+    else
+      nil
+    end
+  end
+
+  def self.delete(game)
+    connection.del(keyspace(game.app_id))
   end
 
   def self.read_all
     connection.keys(keyspace).map{|app_id| read app_id}
+  end
+
+  def self.read_top_100
+    tail_rank = connection.zcard(game_score_key)
+    connection.zrevrange(game_score_key, tail_rank - 101, tail_rank).map do |app_id|
+      read app_id
+    end
+  end
+
+  def self.game_score_key
+    'game_scores'
   end
 
   def self.keyspace(id = '*')

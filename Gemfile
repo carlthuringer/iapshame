@@ -13,9 +13,9 @@ gem 'redis', '~> 3.0.7'
 gem "resque", "~> 1.25.2"
 gem 'rest-client', "~> 1.6.7"
 gem 'whenever', '~> 0.9.2', :require => false
+gem 'pry'
 
 group :development, :test do
-  gem 'pry'
   gem 'pry-rescue'
   gem 'rspec', '~> 2.14.1'
   gem 'capistrano',  '~> 3.1'

@@ -9,7 +9,7 @@ class ImportsIAPDataFromPreviewPage
     preview_pages = context.fetch(:preview_pages)
     context[:iap_data] = Hash[
       preview_pages.map do |id, page|
-        [id, Importer::IAPData.import_preview_page(page)]
+        [id, Importer::IAPData.import_preview_page_iap(page)]
       end
     ]
   end

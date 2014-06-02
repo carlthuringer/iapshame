@@ -14,7 +14,7 @@ describe "ImportsIAPDataFromPreviewPage" do
       :price => 99.99
     }]
 
-    Importer::IAPData.stub(:import_preview_page => iap_data)
+    Importer::IAPData.stub(:import_preview_page_iap => iap_data)
     result_context = ImportsIAPDataFromPreviewPage.execute(context)
     expect(result_context[:iap_data][111][0][:text]).to eq("Box of Crap")
     expect(result_context[:iap_data][111][0][:price]).to eq(99.99)

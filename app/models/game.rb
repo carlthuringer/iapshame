@@ -35,7 +35,7 @@ class Game
   end
 
   def score
-    top_list_rank_boost + iap_price_boost + release_date.to_f / 10000000
+    top_list_rank_boost + iap_price_boost + release_date.to_f / 1000000
   end
 
   def iap_price_boost
@@ -43,6 +43,6 @@ class Game
   end
 
   def top_list_rank_boost
-    Math.log10([(100 - top_list_rank.to_i), 1].max)
+    top_list_rank ? 16 : 0
   end
 end

@@ -5,7 +5,7 @@ class FetchInAppPurchasesJob
   @queue = 'iap-fetch'
 
   def self.perform(app_id)
-    sleep 0.1 # Try not to blow the rate limiter on apple's preview site
+    sleep 0.2 # Try not to blow the rate limiter on apple's preview site
     game = GameRepository.read(app_id)
     return unless game.present?
     FetchesInAppPurchases.for_game(game)

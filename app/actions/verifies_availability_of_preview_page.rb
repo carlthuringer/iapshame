@@ -5,6 +5,6 @@ class VerifiesAvailabilityOfPreviewPage
   expects :preview_page
 
   executed do |context|
-    context.fail! unless context.preview_page.document.css('#productheader').present?
+    context.fail! if context.preview_page.document.css('#productheader').empty?
   end
 end

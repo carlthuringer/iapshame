@@ -17,7 +17,7 @@ describe "GameRepository" do
     it "also writes the game's score to redis" do
       game = Game.new(:app_id => 111, :name => "FooGame")
       GameRepository.write(game)
-      expect(@redis.zrank("game_scores", 111)).to be_present
+      expect(@redis.zrank("game_scores", 111)).to_not be_nil
     end
   end
 

@@ -2,14 +2,12 @@ require 'light-service'
 
 class DeletesGamesWithNoInAppPurchases
   include LightService::Action
+  expects :game
 
   executed do |context|
-    context[:games].select do |game|
-      game.top_iap_title.nil?
-    end.each do |no_iap_game|
-      GameRepository.delete(no_iap_game)
-    end.tap do |no_iap_games|
-      context[:games] -= no_iap_games
+    if context.game.top_iap_title.nil?
+      GameRepository.delete(context.game)
+      context.skip_all!
     end
   end
 end

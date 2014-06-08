@@ -8,7 +8,7 @@ describe "VerifiesAvailabilityOfPreviewPage" do
     stub_apple_app_preview_as_launcher_get_200
     preview_uri = "https://itunes.apple.com/us/app/jet-ski-ultimate-wave-race/id871114853?mt=8"
     context = LightService::Context.make({
-      :games => [ Game.new(:app_id => 123, :preview_uri =>preview_uri) ]
+      :game => Game.new(:app_id => 123, :preview_uri =>preview_uri) 
     })
 
     context_with_page = FetchesAppPreviewPage.execute(context)
@@ -21,7 +21,7 @@ describe "VerifiesAvailabilityOfPreviewPage" do
     stub_apple_app_preview_get_200
     preview_uri = "https://itunes.apple.com/us/app/jet-ski-ultimate-wave-race/id871114853?mt=8"
     context = LightService::Context.make({
-      :games => [ Game.new(:app_id => 123, :preview_uri =>preview_uri) ]
+      :game => Game.new(:app_id => 123, :preview_uri =>preview_uri) 
     })
 
     context_with_page = FetchesAppPreviewPage.execute(context)

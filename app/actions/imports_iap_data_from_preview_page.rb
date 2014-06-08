@@ -4,13 +4,10 @@ require './app/importer/iap_data'
 
 class ImportsIAPDataFromPreviewPage
   include LightService::Action
+  expects :preview_page
+  promises :iap_data
 
   executed do |context|
-    preview_pages = context.fetch(:preview_pages)
-    context[:iap_data] = Hash[
-      preview_pages.map do |id, page|
-        [id, Importer::IAPData.import_preview_page_iap(page)]
-      end
-    ]
+    context.iap_data = Importer::IAPData.import_preview_page_iap(context.preview_page)
   end
 end

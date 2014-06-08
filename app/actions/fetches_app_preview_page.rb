@@ -3,11 +3,10 @@ require 'light-service'
 
 class FetchesAppPreviewPage
   include LightService::Action
+  expects :game
+  promises :preview_page
 
   executed do |context|
-    context[:preview_pages] = context[:games].reduce({}) do |pages, game|
-      pages[game.app_id] = Client::AppleAppPreviewPage.fetch_preview(game.preview_uri).document
-      pages
-    end
+    context.preview_page = Client::AppleAppPreviewPage.fetch_preview(context.game.preview_uri).document
   end
 end

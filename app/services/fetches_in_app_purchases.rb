@@ -10,7 +10,7 @@ class FetchesInAppPurchases
   include LightService::Organizer
 
   def self.for_game(game)
-    with(:games => [game]).reduce(
+    with(:game => game).reduce(
       FetchesAppPreviewPage,
       ImportsIAPDataFromPreviewPage,
       ImportsReleaseDateFromPreviewPage,

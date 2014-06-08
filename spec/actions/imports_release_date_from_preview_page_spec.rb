@@ -9,8 +9,8 @@ describe ImportsReleaseDateFromPreviewPage do
 
     game = Game.new
     game.should_receive(:release_date=).with(Time.parse("2014-04-22 00:00:00 -0500"))
-    context = { :games => [game],
-                :preview_pages => { 123 => response.document } }
+    context = { :game => game,
+                :preview_page => response.document }
     ImportsReleaseDateFromPreviewPage.execute context
   end
 end

@@ -17,6 +17,7 @@ describe 'Importer::Game' do
         :image_uri => "http://a1919.phobos.apple.com/us/r30/Purple/v4/06/ab/62/06ab62fe-76dd-9b16-a155-b6180b0ec9f1/mzl.ohrotgzr.100x100-75.png",
         :release_date => "2014-04-22T13:42:11-07:00",
         :top_list_rank => 1,
+        :genre => 6014
       }
       expect(imported.first).to eq(expected)
     end

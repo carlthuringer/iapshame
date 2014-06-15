@@ -11,7 +11,8 @@ class Importer::Game
         :preview_uri => entry_node.xpath('link').first["href"],
         :image_uri => entry_node.xpath('image[@height=100]').first.inner_text,
         :release_date => entry_node.xpath('updated').inner_text,
-        :top_list_rank => is_top_list ? index + 1 : nil
+        :top_list_rank => is_top_list ? index + 1 : nil,
+        :genre => entry_node.xpath('category').first['id'].to_i
       }
     end
   end

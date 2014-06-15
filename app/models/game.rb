@@ -8,6 +8,7 @@ class Game
     :preview_uri,
     :image_uri,
     :release_date,
+    :genre,
     :top_iap_title,
     :top_iap_price,
     :top_list_rank

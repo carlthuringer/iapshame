@@ -14,4 +14,8 @@ class Importer::IAPData
   def self.import_preview_page_release_date(document)
     document.css('.release-date').first.children.last.text
   end
+
+  def self.import_preview_page_genre(document)
+    document.css('.genre a').first['href'].match(%r{https://itunes.apple.com/us/genre/ios-games/id(\d{4})})[1].to_i
+  end
 end

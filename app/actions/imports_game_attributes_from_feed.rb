@@ -4,9 +4,10 @@ require 'light-service'
 class ImportsGameAttributesFromFeed
   include LightService::Action
 
+  expects :feed, :is_top_list
+  promises :game_attributes
+
   executed do |context|
-    feed = context.fetch(:feed)
-    is_top_list = context.fetch(:is_top_list)
-    context[:game_attributes] = Importer::Game.import_feed_document(feed, is_top_list)
+    context.game_attributes = Importer::Game.import_feed_document(context.feed, context.is_top_list)
   end
 end

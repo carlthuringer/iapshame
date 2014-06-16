@@ -7,23 +7,26 @@ ul {
   flex-direction: row;
   flex-wrap: wrap;
   width: auto;
-  height: 1000px;
 }
 
 ul li {
-  flex: 1 1 auto;
-  max-width: 50%;
-  
-}
-
-ul li {
+  flex: 0 0 auto;
   list-style: none;
+  width: 50%
 }
 
 ul li:nth-child(1) {
-  flex: 100 1 auto;
+  flex: 1 1 auto;
+  width: 100%;
+  justify-content: center;
 }
 
 ul li h2:before {
   content: "#"
+}
+
+@media all and (max-width: 640px) {
+  ul li {
+    width: 100%;
+  }
 }

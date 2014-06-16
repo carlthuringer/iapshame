@@ -6,29 +6,17 @@ title: In-App-Purchase Shame
 <%- require 'config/boot' %>
 <%- @games = GameRepository.read_top_100.compact %>
 <h1>In App Purchase Shame</h1>
-<table>
-  <thead>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>Title</td>
-      <td>Release Date</td>
-      <td>Top Purchase</td>
-    </tr>
-  </thead>
-  <tbody>
-  <%-
-    @games
-      .map{|g| GamePresenter.new(g)}
-      .each.with_index do |game, rank|
-    %>
-    <tr>
-      <td><h2><%= rank + 1 %></h2></td>
-      <td><img src="<%= game.image_uri %>"></img></td>
-      <td><h2><a href="<%= game.preview_uri %>" target="blank"><%= game.title %></a></h2></td>
-      <td><%= game.release_date %></td>
-      <td><%= game.top_iap_title %> <%= game.top_iap_price %></td>
-    </tr>
-  <%- end %>
-  </tbody>
-</table>
+<section>
+<ul>
+  <%- @games .map{|g| GamePresenter.new(g)} .each.with_index do |game, rank| %>
+    <li>
+  <h2><%= rank + 1 %>
+  <a href="<%= game.preview_uri %>" target="blank"><img src="<%= game.image_uri %>"></img></a>
+  </h2>
+  <h3><%= game.top_iap_title %> <span class='price'>$<%= game.top_iap_price %></span></h3>
+  <%= game.title %>
+  <span class='release-date'><%= game.release_date %></span>
+  </li>
+<%- end %>
+</ul>
+</section>

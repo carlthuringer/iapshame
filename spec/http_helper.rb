@@ -22,6 +22,10 @@ module WebStubs
     stub_request(:get, %r{https://itunes\.apple\.com/us/app/.*}).to_return(File.open('./spec/fixtures/http/apple/app_preview_get_200.txt'))
   end
 
+  def stub_apple_app_preview_get_NWK_200
+    stub_request(:get, %r{https://itunes\.apple\.com/us/app/.*}).to_return(File.open('./spec/fixtures/http/apple/app_preview_get_NWK_200.txt'))
+  end
+
   def stub_apple_app_preview_as_launcher_get_200
     stub_request(:get, %r{https://itunes\.apple\.com/us/app/.*}).to_return(File.open('./spec/fixtures/http/apple/app_preview_as_itunes_launcher_200.txt'))
   end

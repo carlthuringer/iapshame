@@ -24,6 +24,7 @@ class GameRepository
 
   def self.delete(game)
     connection.del(keyspace(game.app_id))
+    connection.zrem(game_score_key, game.app_id)
   end
 
   def self.read_all
@@ -31,7 +32,6 @@ class GameRepository
   end
 
   def self.read_top_100
-    tail_rank = connection.zcard(game_score_key)
     connection.zrevrange(game_score_key, 0, 100).map do |app_id|
       read app_id
     end

@@ -5,7 +5,8 @@ require 'rest-client'
 
 class Client::AppleAppPreviewPage
   def self.fetch_preview(uri)
-    retry_request -> { RestClient.get(uri) }
+    user_agent = {:user_agent => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36"}
+    retry_request -> { RestClient.get(uri, user_agent) }
     Client::AppleAppPreviewResponse.new(RestClient.get(uri))
   end
 

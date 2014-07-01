@@ -15,7 +15,6 @@ class FetchesInAppPurchases
     with(:game => game).reduce(
       FetchesAppPreviewPage,
       ImportsIAPDataFromPreviewPage,
-      ImportsReleaseDateFromPreviewPage,
       ImportsGenreFromPreviewPage,
       RejectsNonApprovedCategoryIds,
       AppliesIAPDataToGames,

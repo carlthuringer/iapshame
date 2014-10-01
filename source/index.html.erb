@@ -3,6 +3,7 @@ title: In-App-Purchase Shame
 ---
 
 <!-- Add your site or application content here -->
+<%- require 'config/boot' %>
 <%- first_game, *other_games = *GameRepository.read_top_100.compact %>
 <div class='jumbotron'>
   <div class='row'>

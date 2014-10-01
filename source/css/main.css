@@ -1,32 +1,38 @@
 body {
-  margin: 1em
 }
 
-ul {
+ul.game-grid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: auto;
+  padding: 0;
 }
 
-ul li {
-  flex: 0 0 auto;
+ul.game-grid li {
   list-style: none;
-  width: 50%
+  width: 31%;
 }
 
-ul li:nth-child(1) {
-  flex: 1 1 auto;
-  width: 100%;
-  justify-content: center;
+ul.game-grid li:nth-child(2) {
+  margin-right: 0;
 }
 
-ul li h2:before {
-  content: "#"
+@media all and (max-width: 1170px) {
+  ul.game-grid li {
+    width: 23%;
+  }
 }
 
-@media all and (max-width: 640px) {
-  ul li {
+@media all and (max-width: 987px) {
+  ul.game-grid li {
+    width: 48%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  ul.game-grid li {
     width: 100%;
   }
 }

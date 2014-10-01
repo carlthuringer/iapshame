@@ -31,6 +31,12 @@ class GameRepository
     connection.keys(keyspace).map{|app_id| read app_id}
   end
 
+  def self.read_all_ordered
+    connection.zrevrange(game_score_key, 0, -1).map do |app_id|
+      read app_id
+    end
+  end
+
   def self.read_top_100
     connection.zrevrange(game_score_key, 0, 100).map do |app_id|
       read app_id

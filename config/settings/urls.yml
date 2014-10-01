@@ -1,7 +1,7 @@
-:new_applications: https://itunes.apple.com/us/rss/newapplications/xml
-:top_free_applications: https://itunes.apple.com/us/rss/topfreeapplications/limit=100/genre=6014/xml
-:top_paid_applications: https://itunes.apple.com/us/rss/toppaidapplications/limit=100/genre=6014/xml
-:top_grossing_applications: https://itunes.apple.com/us/rss/topgrossingapplications/limit=100/genre=6014/xml
-:top_free_ipad_applications: https://itunes.apple.com/us/rss/topgrossingapplications/limit=100/genre=6014/xml
-:top_paid_ipad_applications: https://itunes.apple.com/us/rss/toppaidipadapplications/limit=100/genre=6014/xml
-:top_grossing_ipad_applications: https://itunes.apple.com/us/rss/topgrossingipadapplications/limit=100/genre=6014/xml
+:new_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/newapplications/xml
+:top_free_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeapplications/limit=100/genre=6014/xml
+:top_paid_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidapplications/limit=100/genre=6014/xml
+:top_grossing_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topgrossingapplications/limit=100/genre=6014/xml
+:top_free_ipad_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topfreeipadapplications/limit=100/genre=6014/xml
+:top_paid_ipad_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/toppaidipadapplications/limit=100/genre=6014/xml
+:top_grossing_ipad_applications: http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topgrossingipadapplications/limit=100/genre=6014/xml

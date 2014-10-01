@@ -1,7 +1,9 @@
 <div class='thumbnail'>
 <h2><a href="<%= game.preview_uri %>" target="blank"><img src="<%= game.image_uri %>"></img></a></h2>
 <div class='caption'>
-  <h3><%= game.top_iap_title %> <span class='price'>$<%= game.top_iap_price %></span></h3>
+  <%- if game.top_iap_title %>
+    <h3><%= game.top_iap_title %> <span class='price'>$<%= game.top_iap_price %></span></h3>
+  <%- end %>
   <h4><p><%= game.title %></p></h4>
   <h5><span class='release-date'><%= game.release_date %></span></h5>
 </div>

@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body ng-app="iapShame">
   <div class='navbar navbar-inverse'>
     <div class="container-fluid">
       <div class='navbar-header'>
@@ -34,6 +34,19 @@
             <%#<a href="/shame.html">Shame</a>%>
             <%#<a href="/fame.html">Fame</a>%>
         </ul>
+        <form class="navbar-form navbar-right"
+              role="search"
+              id="search-games"
+              ng-controller="SearchController">
+          <div class="form-group">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Search"
+                   ng-model="search.term"
+                   ng-change="searching()">
+            </input>
+          </div>
+        </form>
       </div>
     </div>
   </div>

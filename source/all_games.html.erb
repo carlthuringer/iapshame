@@ -2,10 +2,11 @@
 title: All Games - In-App Purchase Shame
 ---
 <%- require 'config/boot' %>
-<ul class='game-grid'>
-<%- GameRepository.read_all_ordered.compact.map{|game| GamePresenter.new(game)}.each do |game|  %>
-  <li>
-    <%= partial :game, locals: { game: game } %>
-  </li>
-<%- end %>
-
+<ul class='game-grid'
+  ng-controller="SearchController">
+  <%- GameRepository.read_all_ordered.compact.map{|game| GamePresenter.new(game)}.each do |game|  %>
+    <li ng-hide="hideWhenSearching('<%= js_escape_html(game.title) %>')">
+      <%= partial :game, locals: { game: game } %>
+    </li>
+  <%- end %>
+</ul>

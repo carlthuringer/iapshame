@@ -1,12 +1,15 @@
 ---
 title: All Games - In-App Purchase Shame
 ---
+<div ng-controller="AllGamesController">
 <%- require 'config/boot' %>
-<ul class='game-grid'
-  ng-controller="SearchController">
+<ul class='game-grid'>
   <%- GameRepository.read_all_ordered.compact.map{|game| GamePresenter.new(game)}.each do |game|  %>
     <li ng-hide="hideWhenSearching('<%= js_escape_html(game.title) %>')">
       <%= partial :game, locals: { game: game } %>
     </li>
   <%- end %>
 </ul>
+
+<div class='thumbnail' ng-hide="!search.term"><h3 class='text-center'>That is all.</h3></div>
+</div>

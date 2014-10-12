@@ -37,10 +37,12 @@
         <form class="navbar-form navbar-right"
               role="search"
               id="search-games"
-              ng-controller="SearchController">
+              ng-controller="SearchController"
+              ng-submit="searchSubmit()">
           <div class="form-group">
             <input type="text"
                    class="form-control"
+                   name="search"
                    placeholder="Search"
                    ng-model="search.term"
                    ng-change="searching()">

@@ -7,7 +7,7 @@ window.allGames = <%= GameRepository.read_all_ordered.compact.to_json %>;
 </script>
 <div ng-controller="AllGamesController">
 <ul class='game-grid'>
-  <li dir-paginate="game in games | itemsPerPage: 10">
+  <li dir-paginate="game in games | itemsPerPage: 8">
     <div class='thumbnail'>
       <h2><a href="{{ game.preview_uri }}" target="blank"><img ng-src="{{ game.image_uri }}"></img></a></h2>
       <div class='caption'>

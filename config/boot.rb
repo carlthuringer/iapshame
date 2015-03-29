@@ -11,6 +11,9 @@ Dir[File.join File.dirname(__FILE__), '..', 'config', 'initializers', '*']
   require initializer
 end
 
+# Enable garbage-collection instrumentation
+GC::Profiler.enable
+
 ENV['RAILS_ENV'] ||= 'production'
 
 require 'newrelic_rpm'

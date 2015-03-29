@@ -1,5 +1,5 @@
 torcluster:
-  build: torcluster
+  build: containers/torcluster
   expose:
     - 3129
     - 3130

@@ -48,11 +48,11 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-       within release_path do
-         execute 'bin/middleman', 'build'
-       end
+      with APP_ENV: 'production' do
+         within release_path do
+           execute 'bin/middleman', 'build'
+         end
+      end
     end
   end
-
 end

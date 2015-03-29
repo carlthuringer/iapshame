@@ -1,0 +1,5 @@
+torcluster:
+  build: torcluster
+  ports:
+    - 3130:3130
+    - 9151:9151

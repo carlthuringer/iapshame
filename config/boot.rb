@@ -13,6 +13,8 @@ end
 
 ENV['RAILS_ENV'] ||= 'production'
 
+require 'newrelic_rpm'
+
 require 'active_support'
 require 'apple_rss_feed'
 require 'loads_games'

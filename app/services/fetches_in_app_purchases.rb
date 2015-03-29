@@ -11,15 +11,20 @@ require 'persists_game_data'
 class FetchesInAppPurchases
   include LightService::Organizer
 
-  def self.for_game(game)
-    with(:game => game).reduce(
-      FetchesAppPreviewPage,
-      ImportsIAPDataFromPreviewPage,
-      ImportsGenreFromPreviewPage,
-      RejectsNonApprovedCategoryIds,
-      AppliesIAPDataToGames,
-      DeletesGamesWithNoInAppPurchases,
-      PersistsGameData
-    )
+  class << self
+    include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
+
+    def for_game(game)
+      with(:game => game).reduce(
+        FetchesAppPreviewPage,
+        ImportsIAPDataFromPreviewPage,
+        ImportsGenreFromPreviewPage,
+        RejectsNonApprovedCategoryIds,
+        AppliesIAPDataToGames,
+        DeletesGamesWithNoInAppPurchases,
+        PersistsGameData
+      )
+    end
+    add_transaction_tracer :for_game, category: :task
   end
 end

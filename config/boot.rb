@@ -11,6 +11,8 @@ Dir[File.join File.dirname(__FILE__), '..', 'config', 'initializers', '*']
   require initializer
 end
 
+ENV['RAILS_ENV'] ||= 'production'
+
 require 'active_support'
 require 'apple_rss_feed'
 require 'loads_games'

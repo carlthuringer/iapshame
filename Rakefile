@@ -19,6 +19,8 @@ namespace :feed_processing do
       games_feed = Client::AppleRSSFeed.fetch_feed(uri)
       is_top_list_feed = name.match(/top/)
       LoadsGames.from_feed(games_feed.document, is_top_list_feed)
+      # Ensure data is sent to new relic
+      ::NewRelic::Agent.shutdown
     end
   end
 

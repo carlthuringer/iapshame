@@ -28,7 +28,7 @@ do
 
   echo "Running: delegated -P$http_port SERVER=http SOCKS=localhost:$socks_port"
 
-  delegated -P$http_port SERVER=http SOCKS=localhost:$socks_port ADMIN="me@torcluster.biz" PERMIT="*:*:192.168.59.3/@"
+  delegated -P$http_port SERVER=http SOCKS=localhost:$socks_port ADMIN="me@torcluster.biz" PERMIT="*:*:*/@"
 done
 
 die()

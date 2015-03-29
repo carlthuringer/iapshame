@@ -1,5 +1,12 @@
 torcluster:
   build: torcluster
+  expose:
+    - 3129
+    - 3130
+
+haproxy:
+  build: containers/haproxy
+  links:
+    - torcluster
   ports:
-    - 3130:3130
-    - 9151:9151
+    - 3128:3128
